@@ -1,0 +1,21 @@
+.vertical-divider {
+    width: 1px;
+    background-color: #ccc;
+    margin: 0 20px;
+}
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1199px) {
+    .section-container {
+        flex-direction: row;
+    }
+}
+
+.result-value {
+    color: #00cc99;
+    font-weight: bold;
+}
