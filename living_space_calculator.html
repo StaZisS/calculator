@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="slider.css" type="text/css">
+    <link rel="stylesheet" href="column.css" type="text/css">
+    <link rel="stylesheet" href="navbar.css" type="text/css">
+    <link rel="stylesheet" href="font_style.css" type="text/css">
+    <link rel="stylesheet" href="living_space.css" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="manifest" href="icon/site.webmanifest">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo_calculator.png" alt="logo_calculator" width="40"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Калькуляторы
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="residential_share_calculator.html">Размера доли</a></li>
+                        <li><a class="dropdown-item" href="living_space_calculator.html">Размер площади жилого помещения</a></li>
+                        <li><a class="dropdown-item" href="index.html">В разработке...</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="developer.html">Разработчик</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-lg-7 col-md-8 mx-auto mt-2">
+            <h3 class="blue-font" style="font-weight: bold">Калькулятор расчёта площади жилого помещения,
+                пропорциональной размеру доли собственника в общей собственности на помещение</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="section-container">
+        <div class="row">
+            <div class="col-md-11">
+                <section style="flex: 1; display: flex; flex-direction: column;">
+
+                    <div class="mt-5 mx-auto" style="width: 100%;" >
+                        <div class="slider-input-container">
+                            <div class="slider-input">
+                                <p style="padding: 0;margin: 7px;">Площадь жилого помещения, кв.м. </p>
+                                <input type="text" class="form-control" id="valueInput_livingArea" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 mx-auto" style="width: 100%;">
+                        <div class="slider-input-container">
+                            <div class="slider-input">
+                                <p style="padding: 0;margin: 7px;">Размер доли сособственника, правильная дробь</p>
+                                <input type="text" class="form-control" id="valueInput_sizeCoOwnerShare" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+
+        <div class="vertical-divider"></div>
+
+        <section class="mt-5" style="flex: 1; display: flex; flex-direction: column;">
+            <h2 class="text-center blue-font" style="font-weight: bold">Результат</h2>
+            <div class="row">
+                <div class="mx-auto mt-2 col-md-10">
+                    <h5>
+                        Площадь жилого помещения пропорциональная размеру приобретаемой (получаемой) доли в праве собственности:
+                        <span class="result-value declineValue" id="result">0</span>
+                    </h5>
+                    <h6>
+                        Если ответ горит
+                        <span class="declineValue">красным</span>
+                        цветом, сделка ничтожна.
+                    </h6>
+                    <h6>
+                        <span style="font-weight: bold">За исключением </span>
+                        возникновения права общей долевой
+                        собственности на жилое помещение в силу закона, в результате
+                        наследования, приватизации, определения долей в жилом помещении приобретеном
+                        за счёт средств материнского(семейного) капитала.
+                    </h6>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="container">
+        <div class="col-lg-12 col-md-12 mt-5">
+            <h3 class="blue-font" style="font-weight: bold">Автоматический расчёт размера площади жилого
+                помещения производится по формуле:</h3>
+            <h5 style="font-size: larger">
+                Исчисляемая площадь жилого помещения пропорцианальна
+                приобретаемому размеру доли в праве собственности
+                расчитывается путем умножения площади жилого помещения
+                на размер доли в праве собственности.
+            </h5>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-lg-12 col-md-12 mt-5">
+            <h3 class="blue-font" style="font-weight: bold">Примечание</h3>
+            <h5 style="font-size: larger">
+                Площадь жилого помещения приходящегося на долю каждого из сособственников
+                <span style="font-weight: bold">не должна составлять менее 6 кв.м. </span>
+                общей площади жилого помещения на каждого сособственника.
+            </h5>
+        </div>
+    </div>
+
+</div>
+
+<script src="living_space_calculator.js"></script>
+
+</body>
+</html>
