@@ -35,6 +35,27 @@ let prev_MCF = valueInput_MCF.value;
 let prev_PP = valueInput_PP.value;
 let prev_NFM = valueInput_NFM.value;
 
+const switchAccuracyButton = document.getElementById('switchAccuracyButton');
+const approximate = 'Сменить на точное вычиление';
+const exact = 'Сменить на приблеженное вычисление';
+
+let isApproximateCalculation = true;
+switchAccuracyButton.innerHTML = approximate;
+
+switchAccuracyButton.addEventListener('click', function () {
+    setStatusAccuracyButton(!isApproximateCalculation);
+    updateResult();
+});
+
+function setStatusAccuracyButton(value) {
+    isApproximateCalculation = value;
+    if (value) {
+        switchAccuracyButton.innerHTML = approximate;
+    } else {
+        switchAccuracyButton.innerHTML = exact;
+    }
+}
+
 valueInput_MCF.addEventListener('focusin', clearFormattingInput);
 
 valueInput_MCF.addEventListener('change', onChangingInput_MCF);
@@ -125,6 +146,15 @@ function updateResult() {
     const MCF = Number(valueInput_MCF.value.replace(/\s/g, ''));
     const PP = Number(valueInput_PP.value.replace(/\s/g, ''));
     const NFM = Number(valueInput_NFM.value);
+
+    if(isApproximateCalculation) {
+        approximateCalculation(MCF, PP, NFM);
+    } else {
+        exactCalculation(MCF, PP, NFM)
+    }
+}
+
+function exactCalculation(MCF, PP, NFM) {
     let numerator = MCF;
     let denominator = PP * NFM;
 
@@ -135,6 +165,24 @@ function updateResult() {
 
     resultProportionMCF.innerHTML = resultPMCF;
     resultRemainingSize.innerHTML = resultRS;
+}
+
+function approximateCalculation(MCF, PP, NFM) {
+    const divide = MCF / PP / NFM;
+
+    let power = 2;
+
+    while (Math.trunc(divide * Math.pow(10, power)) === 0) {
+        power++;
+    }
+
+    let tail = Math.pow(10, power);
+
+    let resultPMCF = Math.round(divide * tail);
+    let resultRS = tail - resultPMCF * NFM;
+
+    resultProportionMCF.innerHTML = resultPMCF + '/' + tail;
+    resultRemainingSize.innerHTML = resultRS + '/' + tail;
 }
 
 function setValueInput(value, valueInput) {
