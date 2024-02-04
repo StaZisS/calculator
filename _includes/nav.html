@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container">
-        <a class="navbar-brand" href="/">
-            <img src="/assets/img/logo_calculator.png" alt="logo_calculator" width="40"/>
+        <a class="navbar-brand" href="{{site.baseurl}}/">
+            <img src="{{site.baseurl}}/assets/img/logo_calculator.png" alt="logo_calculator" width="40"/>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,20 +9,20 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Главная</a>
+                    <a class="nav-link" aria-current="page" href="{{site.baseurl}}/">Главная</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{{site.baseurl}}/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Калькуляторы
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/residential_share_calculator">Размера доли</a></li>
-                        <li><a class="dropdown-item" href="/living_space_calculator">Размер площади жилого помещения</a></li>
-                        <li><a class="dropdown-item" href="/">В разработке...</a></li>
+                        <li><a class="dropdown-item" href="{{site.baseurl}}/residential_share_calculator">Размера доли</a></li>
+                        <li><a class="dropdown-item" href="{{site.baseurl}}/living_space_calculator">Размер площади жилого помещения</a></li>
+                        <li><a class="dropdown-item" href="{{site.baseurl}}/">В разработке...</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/developer">Разработчик</a>
+                    <a class="nav-link" href="{{site.baseurl}}/developer">Разработчик</a>
                 </li>
             </ul>
         </div>

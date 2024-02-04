@@ -22,7 +22,7 @@ title: Калькулятор
 email: inostaziss@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Калькулятор
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/calculator" # the subpath of your site, e.g. /blog
 url: ""
 github_username:  staziss
 
