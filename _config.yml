@@ -22,9 +22,8 @@ title: Калькулятор
 email: inostaziss@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Калькулятор
-baseurl: "" # the subpath of your site, e.g. /blog
-domain: "staziss.github.io"
-url: "https://staziss.github.io"
+baseurl: "calculator" # the subpath of your site, e.g. /blog
+url: ""
 github_username:  staziss
 
 # Build settings
