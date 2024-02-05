@@ -36,7 +36,7 @@ let prev_PP = valueInput_PP.value;
 let prev_NFM = valueInput_NFM.value;
 
 const switchAccuracyButton = document.getElementById('switchAccuracyButton');
-const approximate = 'Сменить на точное вычиление';
+const approximate = 'Сменить на точное вычисление';
 const exact = 'Сменить на приблеженное вычисление';
 
 let isApproximateCalculation = true;
