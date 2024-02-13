@@ -26,12 +26,37 @@ function clearFormattingInput(e){
 }
 
 function setValueInput(value, valueInput) {
-    const inputValue = value.replace(/\D/g, "");
-    valueInput.value = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    valueInput.value = value;
+}
+
+function formatNumber(value) {
+    let cleanedValue = value.replace(/[^\d,.]/g, '');
+    let dotFound = false;
+    cleanedValue = cleanedValue.split('').map(char => {
+        if (char === ',') {
+            if (!dotFound) {
+                dotFound = true;
+                return '.';
+            } else {
+                return '';
+            }
+        } else if (char === '.') {
+            if (!dotFound) {
+                dotFound = true;
+                return '.';
+            } else {
+                return '';
+            }
+        } else {
+            return char;
+        }
+    }).join('');
+
+    return parseFloat(cleanedValue);
 }
 
 function onChangingInput_livingArea(e) {
-    const value = Number(e.target.value.replace(/\s/g, ''));
+    const value = formatNumber(e.target.value);
     if (value < min_LivingArea || value > max_LivingArea) {
         valueInput_livingArea.value = prev_livingArea;
         return;
